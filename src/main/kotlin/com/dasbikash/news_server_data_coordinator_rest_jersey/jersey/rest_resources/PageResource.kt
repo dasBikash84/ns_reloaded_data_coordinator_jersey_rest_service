@@ -1,4 +1,4 @@
-package com.dasbikash.news_server_data_coordinator_rest_jersey.jersey.rest_controllers
+package com.dasbikash.news_server_data_coordinator_rest_jersey.jersey.rest_resources
 
 import com.dasbikash.news_server_data_coordinator_rest_jersey.model.Pages
 import com.dasbikash.news_server_data_coordinator_rest_jersey.model.RequestDetailsBean
@@ -13,8 +13,8 @@ import javax.ws.rs.core.Response
 @Path("pages")
 @Produces(value = arrayOf(MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML))
 @Component
-open class PageController (open var pageService: PageService?=null,
-                           open var restControllerUtills: RestControllerUtills?=null){
+open class PageResource (open var pageService: PageService?=null,
+                         open var restControllerUtills: RestControllerUtills?=null){
 
     @GET
     @Path("")

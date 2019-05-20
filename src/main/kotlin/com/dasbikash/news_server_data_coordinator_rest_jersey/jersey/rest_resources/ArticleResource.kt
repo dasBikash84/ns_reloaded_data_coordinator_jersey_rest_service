@@ -1,4 +1,4 @@
-package com.dasbikash.news_server_data_coordinator_rest_jersey.jersey.rest_controllers
+package com.dasbikash.news_server_data_coordinator_rest_jersey.jersey.rest_resources
 
 import com.dasbikash.news_server_data_coordinator_rest_jersey.model.RequestDetailsBean
 import com.dasbikash.news_server_data_coordinator_rest_jersey.model.Articles
@@ -13,8 +13,8 @@ import javax.ws.rs.core.*
 @Path("articles")
 @Produces(value = arrayOf(MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML))
 @Component
-open class ArticleController  constructor(@Autowired open var articleService: ArticleService?=null,
-                                         @Autowired open var restControllerUtills: RestControllerUtills?=null) {
+open class ArticleResource constructor(@Autowired open var articleService: ArticleService?=null,
+                                       @Autowired open var restControllerUtills: RestControllerUtills?=null) {
 
     @Value("\${article.default_page_size}")
     open var defaultPageSize: Int = 5

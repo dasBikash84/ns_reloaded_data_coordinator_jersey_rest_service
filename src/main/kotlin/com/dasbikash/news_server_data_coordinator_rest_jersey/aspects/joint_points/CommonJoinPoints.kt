@@ -4,6 +4,6 @@ import org.aspectj.lang.annotation.Pointcut
 
 class CommonJoinPoints {
 
-    @Pointcut("execution(* com.dasbikash.news_server_data_coordinator_rest_jersey.jersey.rest_controllers..*EndPoint(..))")
+    @Pointcut("execution(* com.dasbikash.news_server_data_coordinator_rest_jersey.jersey.rest_resources..*EndPoint(..))")
     fun allControllersEndPoints() {}
 }
