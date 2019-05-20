@@ -39,7 +39,7 @@ data class PageGroup(
     }
 
     var active: Boolean = true
-    @OneToMany(fetch = FetchType.LAZY,targetEntity = Page::class)
+    @OneToMany(fetch = FetchType.EAGER,targetEntity = Page::class)
     @JoinTable(
             name="page_group_entries",
             joinColumns = arrayOf(JoinColumn(name = "pageGroupId")),
