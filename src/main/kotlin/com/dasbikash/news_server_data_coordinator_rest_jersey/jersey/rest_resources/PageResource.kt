@@ -15,7 +15,6 @@ import javax.ws.rs.core.Response
 @Component
 open class PageResource (open var pageService: PageService?=null,
                          open var restControllerUtills: RestControllerUtills?=null){
-
     @GET
     @Path("")
     @Produces(value = arrayOf(MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML))
