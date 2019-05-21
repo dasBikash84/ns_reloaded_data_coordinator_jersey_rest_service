@@ -1,14 +1,15 @@
 package com.dasbikash.news_server_data_coordinator_rest_jersey.jersey.rest_resources
 
-import com.dasbikash.news_server_data_coordinator_rest_jersey.model.RequestDetailsBean
 import com.dasbikash.news_server_data_coordinator_rest_jersey.model.Articles
+import com.dasbikash.news_server_data_coordinator_rest_jersey.model.RequestDetailsBean
 import com.dasbikash.news_server_data_coordinator_rest_jersey.services.ArticleService
 import com.dasbikash.news_server_data_coordinator_rest_jersey.utills.RestControllerUtills
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
 import javax.ws.rs.*
-import javax.ws.rs.core.*
+import javax.ws.rs.core.MediaType
+import javax.ws.rs.core.Response
 
 @Path("articles")
 @Produces(value = arrayOf(MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML))

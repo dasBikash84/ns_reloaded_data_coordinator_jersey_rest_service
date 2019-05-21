@@ -109,7 +109,7 @@ constructor(open var articleUploaderStatusChangeLogService: ArticleUploaderStatu
                 articleUploaderStatusChangeRequest.status == null ){
             throw IllegalRequestBodyException()
         }
-        authTokenService!!.invalidateAuthToken(articleUploaderStatusChangeRequest.authToken)
+        authTokenService!!.invalidateAuthToken(articleUploaderStatusChangeRequest.authToken!!)
         try {
             val statusData = ArticleUploaderStatusChangeLog(
                     status = articleUploaderStatusChangeRequest.status,

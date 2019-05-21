@@ -68,14 +68,14 @@ open class RestControllerUtills constructor(open var authTokenService: AuthToken
         } else {
             if (logEntryDeleteRequest.entryDeleteCount == null ||
                     logEntryDeleteRequest.entryDeleteCount!! < 0) {
-                logEntriesForDeletion.addAll(deletableLogService.getLogsAfterGivenId(logEntryDeleteRequest.targetLogId, LogEntryDeleteRequest.DEFAULT_ENTRY_DELETE_COUNT))
+                logEntriesForDeletion.addAll(deletableLogService.getLogsAfterGivenId(logEntryDeleteRequest.targetLogId!!, LogEntryDeleteRequest.DEFAULT_ENTRY_DELETE_COUNT))
             } else {
                 if (logEntryDeleteRequest.entryDeleteCount!! > LogEntryDeleteRequest.MAX_ENTRY_DELETE_LIMIT) {
                     logEntriesForDeletion.addAll(deletableLogService
-                            .getLogsAfterGivenId(logEntryDeleteRequest.targetLogId, LogEntryDeleteRequest.MAX_ENTRY_DELETE_LIMIT))
+                            .getLogsAfterGivenId(logEntryDeleteRequest.targetLogId!!, LogEntryDeleteRequest.MAX_ENTRY_DELETE_LIMIT))
                 } else {
                     logEntriesForDeletion.addAll(deletableLogService
-                            .getLogsAfterGivenId(logEntryDeleteRequest.targetLogId, logEntryDeleteRequest.entryDeleteCount!!))
+                            .getLogsAfterGivenId(logEntryDeleteRequest.targetLogId!!, logEntryDeleteRequest.entryDeleteCount!!))
                 }
             }
         }
