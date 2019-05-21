@@ -32,7 +32,6 @@ constructor(open var articleUploaderStatusChangeLogService: ArticleUploaderStatu
     open var maxPageSize: Int = 50
 
     @GET
-    @Path("")
     @Produces(value = arrayOf(MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML))
     open fun getLatestArticleUploaderStatusChangeLogsEndPoint(@QueryParam("page-size") pageSizeRequest:Int?,
                                                               @BeanParam requestDetails: RequestDetailsBean)

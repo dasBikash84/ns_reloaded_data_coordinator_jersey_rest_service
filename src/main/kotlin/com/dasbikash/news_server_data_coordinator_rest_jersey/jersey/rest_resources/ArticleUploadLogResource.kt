@@ -27,7 +27,6 @@ constructor(open var  articleUploadLogService: ArticleUploadLogService?=null,
     open var  maxPageSize: Int = 50
 
     @GET
-    @Path("")
     @Produces(value = arrayOf(MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML))
     open fun getLatestArticleUploadLogsEndPoint(@QueryParam("page-size") pageSizeRequest:Int?,
                                                 @BeanParam requestDetails: RequestDetailsBean)
@@ -88,7 +87,6 @@ constructor(open var  articleUploadLogService: ArticleUploadLogService?=null,
     }
 
     @DELETE
-    @Path("")
     @Produces(value = arrayOf(MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML))
     @Consumes(value = arrayOf(MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML))
     open fun deleteErrorLogsEndPoint(logEntryDeleteRequest: LogEntryDeleteRequest?,

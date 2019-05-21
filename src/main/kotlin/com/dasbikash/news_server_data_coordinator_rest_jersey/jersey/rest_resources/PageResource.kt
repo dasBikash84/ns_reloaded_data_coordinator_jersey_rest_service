@@ -16,7 +16,6 @@ import javax.ws.rs.core.Response
 open class PageResource (open var pageService: PageService?=null,
                          open var restControllerUtills: RestControllerUtills?=null){
     @GET
-    @Path("")
     @Produces(value = arrayOf(MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML))
     open fun getAllActivePagesEndPoint(@BeanParam requestDetails: RequestDetailsBean): Response {
         return restControllerUtills!!.entityToResponseEntity(

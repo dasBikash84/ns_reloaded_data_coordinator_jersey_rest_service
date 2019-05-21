@@ -18,7 +18,6 @@ open class PageGroupResource
 constructor(open var pageGroupService: PageGroupService?=null,
             open var restControllerUtills: RestControllerUtills?=null){
     @GET
-    @Path("")
     @Produces(value = arrayOf(MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML))
     open fun getAllActivePagesEndPoint(@BeanParam requestDetails: RequestDetailsBean): Response {
         return restControllerUtills!!.entityToResponseEntity(pageGroupService!!.getPageGroups())

@@ -26,7 +26,6 @@ constructor(open var settingsUploadLogService: SettingsUploadLogService?=null,
     open var maxPageSize: Int = 50
 
     @GET
-    @Path("")
     @Produces(value = arrayOf(MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML))
     open fun getLatestSettingsUploadLogsEndPoint(@QueryParam("page-size") pageSizeRequest:Int?,
                                                  @BeanParam requestDetails: RequestDetailsBean)
@@ -87,7 +86,6 @@ constructor(open var settingsUploadLogService: SettingsUploadLogService?=null,
     }
 
     @DELETE
-    @Path("")
     @Produces(value = arrayOf(MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML))
     @Consumes(value = arrayOf(MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML))
     open fun deleteErrorLogsEndPoint(logEntryDeleteRequest: LogEntryDeleteRequest?,

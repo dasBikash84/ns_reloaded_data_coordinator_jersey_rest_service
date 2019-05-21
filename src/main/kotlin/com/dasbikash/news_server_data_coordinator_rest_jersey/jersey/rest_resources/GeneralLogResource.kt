@@ -27,7 +27,6 @@ constructor(open var generalLogService: GeneralLogService?=null,
     open var maxPageSize: Int = 50
 
     @GET
-    @Path("")
     @Produces(value = arrayOf(MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML))
     open fun getLatestGeneralLogsEndPoint(@QueryParam("page-size") pageSizeRequest: Int?,
                                           @BeanParam requestDetails: RequestDetailsBean): Response {
@@ -85,7 +84,6 @@ constructor(open var generalLogService: GeneralLogService?=null,
     }
 
     @DELETE
-    @Path("")
     @Produces(value = arrayOf(MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML))
     @Consumes(value = arrayOf(MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML))
     open fun deleteGeneralLogsEndPoint(logEntryDeleteRequest: LogEntryDeleteRequest?,
