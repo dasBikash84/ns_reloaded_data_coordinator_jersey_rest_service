@@ -8,12 +8,20 @@ import org.springframework.context.annotation.Configuration
 @Configuration
 open class JerseyConfig : ResourceConfig() {
     init {
-        registerClasses(GenericExceptionMapper::class.java, LanguageResource::class.java,
-                CountryResource::class.java, NewsPaperResource::class.java,
-                PageResource::class.java, ArticleResource::class.java,
-                PageGroupResource::class.java, ArticleDownloadLogResource::class.java,
-                ArticleUploadLogResource::class.java, ArticleUploaderStatusChangeLogResource::class.java,
-                ErrorLogResource::class.java, GeneralLogResource::class.java,
-                SettingsUpdateLogResource::class.java, SettingsUploadLogResource::class.java)
+        registerClasses(GenericExceptionMapper::class.java)
+        registerClasses( LanguageResource::class.java)
+        registerClasses(CountryResource::class.java)
+        registerClasses( NewsPaperResource::class.java)
+        registerClasses(PageResource::class.java)
+        registerClasses( ArticleResource::class.java)
+        registerClasses(PageGroupResource::class.java)
+        registerClasses( ArticleDownloadLogResource::class.java)
+        registerClasses(ArticleUploadLogResource::class.java)
+        registerClasses( ArticleUploaderStatusChangeLogResource::class.java)
+        registerClasses(ErrorLogResource::class.java)
+        registerClasses( GeneralLogResource::class.java)
+        registerClasses(SettingsUpdateLogResource::class.java)
+        registerClasses( SettingsUploadLogResource::class.java)
+        registerClasses(ArticleDeleteRequestResource::class.java)
     }
 }

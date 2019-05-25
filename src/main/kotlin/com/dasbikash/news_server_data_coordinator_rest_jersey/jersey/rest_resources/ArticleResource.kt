@@ -2,6 +2,7 @@ package com.dasbikash.news_server_data_coordinator_rest_jersey.jersey.rest_resou
 
 import com.dasbikash.news_server_data_coordinator_rest_jersey.model.Articles
 import com.dasbikash.news_server_data_coordinator_rest_jersey.model.RequestDetailsBean
+import com.dasbikash.news_server_data_coordinator_rest_jersey.model.database.ArticleDeleteRequest
 import com.dasbikash.news_server_data_coordinator_rest_jersey.services.ArticleService
 import com.dasbikash.news_server_data_coordinator_rest_jersey.utills.RestControllerUtills
 import org.springframework.beans.factory.annotation.Autowired
@@ -69,5 +70,23 @@ open class ArticleResource constructor(@Autowired open var articleService: Artic
                                                      @BeanParam requestDetails: RequestDetailsBean)
             :Response{
         return restControllerUtills!!.entityToResponseEntity(articleService!!.getLatestArticleForTopLevelPage(topLevelPageId))
+    }
+
+    @DELETE
+    @Path("request_article_delete_request_token_generation")
+    @Produces(value = arrayOf(MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML))
+    open fun generateLogDeletionTokenEndPoint(@BeanParam requestDetails: RequestDetailsBean): Response {
+        return restControllerUtills!!.generateArticleDeleteRequestToken(this::class.java)
+    }
+
+    @DELETE
+    @Path("article_delete_request")
+    @Produces(value = arrayOf(MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML))
+    @Consumes(value = arrayOf(MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML))
+    open fun submitArticleDeleteRequestEndPoint(articleDeleteRequest: ArticleDeleteRequest?,
+                                                @BeanParam requestDetails: RequestDetailsBean)
+            : Response {
+        return restControllerUtills!!.entityToResponseEntity(
+                articleService!!.submitArticleDeleteRequest(articleDeleteRequest))
     }
 }

@@ -1,7 +1,6 @@
 package com.dasbikash.news_server_data_coordinator_rest_jersey.model
 
 import javax.servlet.http.HttpServletRequest
-import javax.ws.rs.QueryParam
 import javax.ws.rs.core.Context
 import javax.ws.rs.core.HttpHeaders
 import javax.ws.rs.core.UriInfo

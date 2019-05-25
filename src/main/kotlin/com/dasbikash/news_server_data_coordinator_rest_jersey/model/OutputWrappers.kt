@@ -117,6 +117,15 @@ class PageGroups(
     }
 }
 
+@XmlRootElement
+class ArticleDeleteRequests(
+        var articleDeleteRequests:List<ArticleDeleteRequest>?=null
+): DataCoordinatorRestEntity,OutputWrapper{
+    override fun getOutPutCount(): Int {
+        return articleDeleteRequests?.size ?:0
+    }
+}
+
 interface OutputWrapper{
     fun getOutPutCount():Int
 }

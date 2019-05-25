@@ -32,4 +32,5 @@ object DatabaseTableNames {
     const val AUTH_TOKEN_TABLE_NAME = "tokens"
     const val PAGE_GROUP_TABLE_NAME = "page_groups"
     const val REST_ACTIVITY_LOG_TABLE_NAME = "rest_activity_log"
+    const val ARTICLE_DELETE_REQUEST_TABLE_NAME = "article_delete_request"
 }

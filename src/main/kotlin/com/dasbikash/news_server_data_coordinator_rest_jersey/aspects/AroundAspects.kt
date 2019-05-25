@@ -1,7 +1,7 @@
 package com.dasbikash.news_server_data_coordinator_rest_jersey.aspects
 
-import com.dasbikash.news_server_data_coordinator_rest_jersey.model.RequestDetailsBean
 import com.dasbikash.news_server_data_coordinator_rest_jersey.model.OutputWrapper
+import com.dasbikash.news_server_data_coordinator_rest_jersey.model.RequestDetailsBean
 import com.dasbikash.news_server_data_coordinator_rest_jersey.model.database.log_entities.RestActivityLog
 import com.dasbikash.news_server_data_coordinator_rest_jersey.repositories.RestActivityLogRepository
 import org.aspectj.lang.ProceedingJoinPoint

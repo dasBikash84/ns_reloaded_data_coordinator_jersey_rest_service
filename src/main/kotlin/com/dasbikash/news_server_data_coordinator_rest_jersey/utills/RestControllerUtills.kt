@@ -2,14 +2,15 @@ package com.dasbikash.news_server_data_coordinator_rest_jersey.utills
 
 import com.dasbikash.news_server_data_coordinator_rest_jersey.exceptions.DataNotFoundException
 import com.dasbikash.news_server_data_coordinator_rest_jersey.exceptions.IllegalRequestBodyException
+import com.dasbikash.news_server_data_coordinator_rest_jersey.jersey.rest_resources.ArticleResource
 import com.dasbikash.news_server_data_coordinator_rest_jersey.model.LogEntryDeleteRequest
 import com.dasbikash.news_server_data_coordinator_rest_jersey.model.LogEntryDeleteRequestFormat
+import com.dasbikash.news_server_data_coordinator_rest_jersey.model.database.ArticleDeleteRequestFormat
 import com.dasbikash.news_server_data_coordinator_rest_jersey.model.database.DataCoordinatorRestEntity
 import com.dasbikash.news_server_data_coordinator_rest_jersey.services.AuthTokenService
 import com.dasbikash.news_server_data_coordinator_rest_jersey.services.DeletableLogService
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Component
-import org.springframework.stereotype.Service
 import javax.ws.rs.core.Response
 
 @Component
@@ -33,6 +34,12 @@ open class RestControllerUtills constructor(open var authTokenService: AuthToken
         val newToken = authTokenService.getNewAuthToken()
         EmailUtils.emailAuthTokenToAdmin(newToken, type)
         return entityToResponseEntity(LogEntryDeleteRequestFormat())
+    }
+
+    fun generateArticleDeleteRequestToken(type: Class<out ArticleResource>): Response {
+        val newToken = authTokenService.getNewAuthToken()
+        EmailUtils.emailAuthTokenToAdmin(newToken, type)
+        return entityToResponseEntity(ArticleDeleteRequestFormat())
     }
 
     fun validateLogEntryDeleteRequest(logEntryDeleteRequest: LogEntryDeleteRequest?) {
