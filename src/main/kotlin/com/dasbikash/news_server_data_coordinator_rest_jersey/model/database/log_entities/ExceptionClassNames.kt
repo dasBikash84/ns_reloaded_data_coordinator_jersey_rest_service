@@ -6,5 +6,7 @@ enum class ExceptionClassNames {
     ArticleUploadException,
     DataCoordinatorException,
     ParserUnavailableException,
-    SettingsUploadException
+    SettingsUploadException,
+    ArticleFetcherException,
+    ArticleDeleteException
 }

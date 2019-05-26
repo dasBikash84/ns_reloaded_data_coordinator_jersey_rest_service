@@ -46,7 +46,7 @@ data class ArticleDeleteRequest(
 
     companion object{
         const val MAX_ARTICLE_DELETE_REQUEST_COUNT = 400
-        const val MIN_ARTICLE_DELETE_REQUEST_COUNT = 5
+        const val MIN_ARTICLE_DELETE_REQUEST_COUNT = 1
     }
 }
 @XmlRootElement

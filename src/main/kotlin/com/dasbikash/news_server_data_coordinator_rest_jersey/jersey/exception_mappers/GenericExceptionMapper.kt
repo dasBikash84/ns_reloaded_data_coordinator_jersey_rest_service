@@ -11,7 +11,7 @@ import javax.ws.rs.ext.Provider
 class GenericExceptionMapper : ExceptionMapper<Throwable> {
 
     override fun toResponse(ex: Throwable): Response {
-
+        ex.printStackTrace()
         return when(ex){
             is NewsPaperNotFoundByIdException   -> Response.status(Status.NOT_FOUND).entity(ex::class.java.simpleName).build()
             is NewsPaperNotFoundByNameException -> Response.status(Status.NOT_FOUND).entity(ex::class.java.simpleName).build()
