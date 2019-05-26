@@ -16,10 +16,10 @@ data class ArticleDeleteRequest(
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         var id: Int? = null,
         @Transient
-        @JsonIgnore
+//        @JsonIgnore
         var authToken:String? = null,
         @Transient
-        @JsonIgnore
+//        @JsonIgnore
         var targetPageId:String?=null,
         var deleteRequestCount:Int?=null,
         var created:Date?= Date()
