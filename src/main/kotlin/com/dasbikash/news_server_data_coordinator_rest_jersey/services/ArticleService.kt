@@ -70,6 +70,7 @@ open class ArticleService constructor(open var pageRepository: PageRepository,
                 articleDeleteRequest.authToken == null ||
                 articleDeleteRequest.targetPageId == null ||
                 articleDeleteRequest.deleteRequestCount == null ||
+                articleDeleteRequest.articleUploadTarget == null ||
                 articleDeleteRequest.deleteRequestCount!! < ArticleDeleteRequest.MIN_ARTICLE_DELETE_REQUEST_COUNT ||
                 articleDeleteRequest.deleteRequestCount!! > ArticleDeleteRequest.MAX_ARTICLE_DELETE_REQUEST_COUNT
         ) {

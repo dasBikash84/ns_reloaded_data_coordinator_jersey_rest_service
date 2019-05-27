@@ -1,5 +1,6 @@
 package com.dasbikash.news_server_data_coordinator_rest_jersey.model.database
 
+import com.dasbikash.news_server_data_coordinator_rest_jersey.model.database.log_entities.ArticleUploadTarget
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty
 import java.util.*
@@ -22,8 +23,13 @@ data class ArticleDeleteRequest(
 //        @JsonIgnore
         var targetPageId:String?=null,
         var deleteRequestCount:Int?=null,
-        var created:Date?= Date()
+        var created:Date?= Date(),
+        var served:Boolean?=false
 ):DataCoordinatorRestEntity{
+
+    @Enumerated(EnumType.STRING)
+    @Column(columnDefinition = "enum('REAL_TIME_DB','FIRE_STORE_DB','MONGO_REST_SERVICE')")
+    var articleUploadTarget: ArticleUploadTarget?=null
 
     @ManyToOne(targetEntity = Page::class, fetch = FetchType.EAGER)
     @JoinColumn(name = "pageId")
@@ -55,4 +61,6 @@ class ArticleDeleteRequestFormat:DataCoordinatorRestEntity {
     var targetPageId:String="Target Page ID"
     var deleteRequestCount:String = "Article Delete Request Count(${ArticleDeleteRequest.MIN_ARTICLE_DELETE_REQUEST_COUNT} - "+
                                     "${ArticleDeleteRequest.MAX_ARTICLE_DELETE_REQUEST_COUNT})"
+    var articleUploadTarget:String = "${ArticleUploadTarget.REAL_TIME_DB.name} | ${ArticleUploadTarget.FIRE_STORE_DB.name} | " +
+                                        ArticleUploadTarget.MONGO_REST_SERVICE.name
 }
