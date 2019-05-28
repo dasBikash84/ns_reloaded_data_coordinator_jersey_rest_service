@@ -8,5 +8,6 @@ enum class ExceptionClassNames {
     ParserUnavailableException,
     SettingsUploadException,
     ArticleFetcherException,
-    ArticleDeleteException
+    ArticleDeleteException,
+    ReportGenerationException
 }
