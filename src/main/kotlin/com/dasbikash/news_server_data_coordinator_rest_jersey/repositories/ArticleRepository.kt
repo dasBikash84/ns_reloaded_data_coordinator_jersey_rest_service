@@ -18,4 +18,9 @@ interface ArticleRepository : JpaRepository<Article, String>{
                     "order by publicationTime DESC limit :pageSize",
             nativeQuery = true)
     fun getArticlesForPageBeforeArticleId(pageId: String, pageSize: Int, lastArticlePublicationTime: Date): List<Article>
+
+    @Query(value = "SELECT * FROM ${DatabaseTableNames.ARTICLE_TABLE_NAME} WHERE pageId=:pageId and publicationTime > :lastArticlePublicationTime " +
+            "order by publicationTime DESC limit :pageSize",
+            nativeQuery = true)
+    fun getArticlesForPageAfterArticleId(pageId: String, pageSize: Int, lastArticlePublicationTime: Date): List<Article>?
 }

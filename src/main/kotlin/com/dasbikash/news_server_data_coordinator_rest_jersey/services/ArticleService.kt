@@ -41,6 +41,22 @@ open class ArticleService constructor(open var pageRepository: PageRepository,
         return articleRepository.getArticlesForPageBeforeArticleId(pageId, pageSize, lastArticle.publicationTime!!)
     }
 
+    fun getArticlesForPageAfterArticleId(pageId: String, pageSize: Int, lastArticleId: String): List<Article>? {
+
+        val pageOptional = pageRepository.findById(pageId)
+        if (!pageOptional.isPresent || !pageOptional.get().hasData!!) {
+            throw DataNotFoundException()
+        }
+
+        val articleOptional = articleRepository.findById(lastArticleId)
+        if (!articleOptional.isPresent) {
+            throw DataNotFoundException()
+        }
+        val lastArticle = articleOptional.get()
+
+        return articleRepository.getArticlesForPageAfterArticleId(pageId, pageSize, lastArticle.publicationTime!!)
+    }
+
     fun getLatestArticleForTopLevelPage(topLevelPageId: String): Article? {
         val pageOptional = pageRepository.findById(topLevelPageId)
         if (!pageOptional.isPresent || !pageOptional.get().topLevelPage!!) {

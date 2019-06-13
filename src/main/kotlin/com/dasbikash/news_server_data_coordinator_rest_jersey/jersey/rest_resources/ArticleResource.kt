@@ -45,7 +45,7 @@ open class ArticleResource constructor(@Autowired open var articleService: Artic
     }
 
     @GET
-    @Path("/page-id/{pageId}/last-article-id/{lastArticleId}")
+    @Path("/page-id/{pageId}/before/last-article-id/{lastArticleId}")
     @Produces(value = arrayOf(MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML))
     open fun getArticlesForPageBeforeArticleIdEndPoint(@PathParam("pageId") pageId: String,
                                                        @PathParam("lastArticleId") lastArticleId: String,
@@ -61,6 +61,25 @@ open class ArticleResource constructor(@Autowired open var articleService: Artic
             }
         }
         return restControllerUtills!!.entityToResponseEntity(Articles(articleService!!.getArticlesForPageBeforeArticleId(pageId,pageSize,lastArticleId)))
+    }
+
+    @GET
+    @Path("/page-id/{pageId}/after/last-article-id/{lastArticleId}")
+    @Produces(value = arrayOf(MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML))
+    open fun getArticlesForPageAfterArticleIdEndPoint(@PathParam("pageId") pageId: String,
+                                                       @PathParam("lastArticleId") lastArticleId: String,
+                                                       @QueryParam("article_count") articleCount:Int?,
+                                                       @BeanParam requestDetails: RequestDetailsBean): Response {
+
+        var pageSize = defaultPageSize
+
+        articleCount?.let {
+            when{
+                it>=maxPageSize -> pageSize = maxPageSize
+                it>0 -> pageSize = it
+            }
+        }
+        return restControllerUtills!!.entityToResponseEntity(Articles(articleService!!.getArticlesForPageAfterArticleId(pageId,pageSize,lastArticleId)))
     }
 
     @GET
