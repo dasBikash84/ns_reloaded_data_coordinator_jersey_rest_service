@@ -14,6 +14,6 @@ class ArticleUploaderStatusChangeRequest:DataCoordinatorRestEntity {
 @XmlRootElement
 class ArticleUploaderStatusChangeRequestFormat:DataCoordinatorRestEntity {
     var authToken:String = "Emailed token"
-    var articleUploadTarget:String="Target Uploader ID"
+    var articleUploadTarget:String= ArticleUploadTarget.values().joinToString(separator = " | ")
     var status:String = "Target Status"
 }
